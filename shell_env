@@ -1,0 +1,4 @@
+#!/bin/bash
+export RED="\e[31m"
+export GREEN="\e[32m"
+export COLOR_END="\e[0m"
