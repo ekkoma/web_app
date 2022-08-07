@@ -1,0 +1,33 @@
+{
+  "name": "app002",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@idux/cdk": "^1.0.0-alpha.1",
+    "@idux/components": "^1.0.0-alpha.1",
+    "@idux/pro": "^1.0.0-alpha.1",
+    "@types/node": "^18.6.4",
+    "axios": "0.24.0",
+    "pinia": "^2.0.9",
+    "vue": "^3.2.37",
+    "vue-router": "^4.0.12"
+  },
+  "devDependencies": {
+    "@idux/cdk": "^1.0.0-alpha.1",
+    "@idux/components": "^1.0.0-alpha.1",
+    "@idux/pro": "^1.0.0-alpha.1",
+    "@vitejs/plugin-vue": "^3.0.0",
+    "axios": "0.24.0",
+    "pinia": "^2.0.9",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.0",
+    "vue-router": "^4.0.12",
+    "vue-tsc": "^0.38.4"
+  }
+}
