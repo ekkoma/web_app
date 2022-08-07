@@ -10,6 +10,7 @@ mongodb 持久化存储
               'last_login_time': 最近登录时间,
               'role': 角色,
               'status': 状态(1-激活，0-失效),
+              'password': 密码
               }
 角色表：role {'_id': 唯一id,
               'level': 角色等级(1-普通，2-管理员),
