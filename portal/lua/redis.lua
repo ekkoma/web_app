@@ -18,6 +18,7 @@ if not ok then
     rsp["code"] = 1
     rsp["msg"] = "服务器内部错"
     ngx.say(json.encode(rsp))
+    return
 end
 
 user = "桂万利"
@@ -28,6 +29,7 @@ if not res then
     rsp["code"] = 1
     rsp["msg"] = "服务器内部错"
     ngx.say(json.encode(rsp))
+    return
 end
 
 ngx.header["Set-Cookie"] = "token=" .. token

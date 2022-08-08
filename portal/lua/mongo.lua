@@ -17,19 +17,26 @@ if not ok then
     rsp["code"] = 1
     rsp["msg"] = "服务器内部错误"
     ngx.say(json.encode(rsp))
+    return
 end
 
 local pwd = "000000"
-local user = "桂万利"
+local user = "ekko"
 local db = conn:new_db_handle("web")
 local coll = db:get_col("user")
-local r = coll:find_one({name=user}, {password=1})
+local r, err = coll:find_one({name=user}, {password=1})
+
+if not r then
+    ngx.log(ngx.ERR, "find mongo err" .. err)
+    return
+end
 
 if r["password"] ~= pwd then
     ngx.log(ngx.ERR, "user:" .. user .. " password not right, db:" .. r["password"] .. " input:" .. pwd)
     rsp["code"] = 1
     rsp["msg"] = "账号密码错误"
     ngx.say(json.encode(rsp))
+    return
 end
 
 rsp["data"] = {["name"]=user, ["pwd"]=pwd}
