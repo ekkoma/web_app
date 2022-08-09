@@ -2,6 +2,8 @@ local json = require "cjson"
 local redis = require "resty.redis"
 local mongo = require "resty.mongol"
 
+ngx.log(ngx.ERR, "content_by_lua_block")
+
 ngx.req.read_body()
 local data = ngx.req.get_body_data() -- string
 
@@ -10,7 +12,6 @@ if not data then
     return
 end
 
-ngx.header['Content-Type'] = 'application/json; charset=utf-8'
 local rsp = 
 {
     ["code"]= 0, 
