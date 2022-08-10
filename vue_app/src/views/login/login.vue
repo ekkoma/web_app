@@ -1,10 +1,10 @@
 <template>
     <section class="login">
-        <IxInput v-model:value="loginFormData.user" class="login__input" size="lg" placeholder="账号" />
-        <IxInput v-model:value="loginFormData.password" class="login__input" size="lg" placeholder="密码" :type="showPassword ? 'text' : 'password'" >
-            <!-- <template #suffix>
-                <IxIcon class="eye" :name="showPassword ? 'eye-invisible' : 'eye'" @click="onSuffixClick" />
-            </template> -->
+        <IxInput v-model:value="loginFormData.user" class="login__input" placeholder="账号" type="text" />
+        <IxInput v-model:value="loginFormData.password" class="login__input" placeholder="密码" :type="showPassword ? 'text' : 'password'" >
+            <template #suffix>
+                <IxIcon :name="showPassword ? 'eye' : 'eye-invisible'" @click="onSuffixClick" />
+            </template>
         </IxInput>
 
         <button class="login__button" type="button" :disabled="btnDisabled" @click="onLogin">
@@ -36,15 +36,15 @@ console.log("enter login.vue, form data:" + JSON.stringify(loginFormData) + ", b
 
 .login__input {
     height: 44px;
-    text-align: center;
+    /* text-align: center; */
     margin-bottom: 16px;
-    border-radius: 4px;
+    /* border-radius: 4px; */
 }
 
-.login__input::placeholder {
+/* .login__input::placeholder {
     color: #728199;
     text-align: center;
-}
+} */
 
 .login__button {
     width: 320px;
