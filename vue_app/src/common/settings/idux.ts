@@ -28,6 +28,8 @@ import {
 addIconDefinitions(IDUX_ICON_DEPENDENCIES);
 
 // 动态加载：不会被打包，可以减小包体积，需要加载的时候时候 http 请求加载
+// 注意：请确认图标的 svg 资源被正确放入到 `public/idux-icons` 目录中
+// https://idux.site/components/icon/zh#FAQ
 const loadIconDynamically = async (iconName: string) => {
   const res = await fetch(`/idux-icons/${iconName}.svg`);
   return await res.text();

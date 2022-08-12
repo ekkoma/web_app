@@ -11,4 +11,13 @@ export default {
             data,
         });
     },
+    //格言
+    motto() {
+        return request({
+            url: "/api/motto",
+            method: "post",
+            loading: true,
+            // data,
+        });
+    }
 };
