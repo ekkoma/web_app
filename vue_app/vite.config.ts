@@ -21,5 +21,15 @@ export default defineConfig({
     }
   },
 
+  server: {
+    // host: '0.0.0.0',
+    proxy: {
+      '/api/motto': {
+        target: 'http://47.106.162.19/',
+        changeOrigin: true,
+      }
+    }
+  },
+
 })
 

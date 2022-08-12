@@ -11,17 +11,34 @@
             登录
         </button>
     </section>
+
+    <div class="motto" id="motto001">
+        
+    </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import useLogin from '@/views/login/hook/user_login';
+import API from '@/common/api/my_app';
+
 let { onLogin, loginFormData, btnDisabled } = useLogin();
 
 const showPassword = ref(false)
 const onSuffixClick = () => {
     showPassword.value = !showPassword.value
 }
+
+//获取格言
+API.motto().then((result: any) => {
+    let motto = document.getElementById("motto001")
+    if (motto) {
+        motto.innerHTML = result.data
+    }
+    console.log("get motto success:" + JSON.stringify(result))
+}).catch((err: any) => {
+    console.log("get motto failed:" + err)
+});
 
 console.log("enter login.vue, form data:" + JSON.stringify(loginFormData) + ", button disabled:" + Object.keys(btnDisabled))
 </script>
@@ -62,4 +79,13 @@ console.log("enter login.vue, form data:" + JSON.stringify(loginFormData) + ", b
 .login__button:disabled {
     background-color: #a69119;
 }
+
+.motto {
+    margin-top: 30px;
+    text-align: center;
+    font-family: sans-serif, Verdana, Geneva, Tahoma;
+    font-size: 25px;
+    color: rgb(100, 122, 218);
+}
+
 </style>
