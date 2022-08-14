@@ -34,6 +34,7 @@ const onSuffixClick = () => {
 const onKeyEnter = () => {
     console.log("key enter, button disable:" + btnDisabled.effect + "," + btnDisabled.value)
     if (!btnDisabled.value) {
+        console.log("call login by enter")
         onLogin()
     }
 }

@@ -34,6 +34,7 @@ export default defineConfig({
         changeOrigin: true,
       },
       '/login': {
+        // target: 'http://47.106.162.19/',
         target: 'http://127.0.0.1:12345/',
         changeOrigin: true,
       },
