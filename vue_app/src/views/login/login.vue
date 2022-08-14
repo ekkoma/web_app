@@ -1,19 +1,20 @@
 <template>
     <section class="login">
-        <IxInput v-model:value="loginFormData.user" class="login__input" placeholder="账号" type="text" />
-        <IxInput v-model:value="loginFormData.password" class="login__input" placeholder="密码" :type="showPassword ? 'text' : 'password'" >
+        <IxInput v-model:value="loginFormData.user" class="login__input" placeholder="账号" type="text"
+            @keyup.enter="onKeyEnter" />
+        <IxInput v-model:value="loginFormData.password" class="login__input" placeholder="密码"
+            :type="showPassword ? 'text' : 'password'" @keyup.enter="onKeyEnter">
             <template #suffix>
                 <IxIcon :name="showPassword ? 'eye' : 'eye-invisible'" @click="onSuffixClick" />
             </template>
         </IxInput>
-
         <button class="login__button" type="button" :disabled="btnDisabled" @click="onLogin">
             登录
         </button>
     </section>
 
     <div class="motto" id="motto001">
-        
+
     </div>
 </template>
 
@@ -29,7 +30,15 @@ const onSuffixClick = () => {
     showPassword.value = !showPassword.value
 }
 
-//获取格言
+// 响应回车键
+const onKeyEnter = () => {
+    console.log("key enter, button disable:" + btnDisabled.effect + "," + btnDisabled.value)
+    if (!btnDisabled.value) {
+        onLogin()
+    }
+}
+
+// 获取格言
 API.motto().then((result: any) => {
     let motto = document.getElementById("motto001")
     if (motto) {
@@ -37,7 +46,7 @@ API.motto().then((result: any) => {
     }
     console.log("get motto success:" + JSON.stringify(result))
 }).catch((err: any) => {
-    console.log("get motto failed:" + err)
+    console.log("get motto failed:" + JSON.stringify(err))
 });
 
 console.log("enter login.vue, form data:" + JSON.stringify(loginFormData) + ", button disabled:" + Object.keys(btnDisabled))
@@ -87,5 +96,4 @@ console.log("enter login.vue, form data:" + JSON.stringify(loginFormData) + ", b
     font-size: 25px;
     color: rgb(100, 122, 218);
 }
-
 </style>

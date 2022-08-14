@@ -1,11 +1,10 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 
-
 const routes = [
     {
         // 根页
         path: '/',
-        redirect: '/login',
+        redirect: '/login', // 访问根自动重定向到登录页
         component: () => import('@/views/portal.vue'),
         children: [
         ],
@@ -38,6 +37,10 @@ const routes = [
     {
         path: '/links',
         component: () => import('@/views/links.vue')
+    },
+    {
+        path: '/loginfo',
+        component: () => import('@/views/login_info/loginfo.vue')
     },
 ]
 

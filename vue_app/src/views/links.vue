@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="links001">
         <p><a href="https://www.python.org/" target="_blank">Python</a></p>
         <p><a href="http://docs.studygolang.com/" target="_blank">Golang</a></p>
         <p><a href="https://en.cppreference.com/w/" target="_blank">C++</a></p>
@@ -18,7 +18,7 @@ console.log("enter links.vue")
 </script>
 
 <style>
-a {
-    font-size: 2em;
+.links001 {
+    font-size: 30px;
 }
 </style>

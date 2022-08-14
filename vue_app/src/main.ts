@@ -1,7 +1,7 @@
-import '@/assets/style.css' // 全局样式
-import App from '@/App.vue' // 主页面
-import router from '@/router/route_defs' // js
-import Idux from '@/common/settings/idux'; // js
+import '@/assets/style.css' // 全局样式 css
+import App from '@/App.vue' // 主页面 vue
+import router from '@/router/route_defs' // 路由定义 js
+import Idux from '@/common/settings/idux'; // 组件库 js
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia';
