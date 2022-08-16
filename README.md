@@ -60,6 +60,7 @@ mongodb 持久化存储
 ```
 
 #### 5.项目目录
+```
 ├── go_web          -- 上游服务，业务接口
 │   └── api
 ├── mongo           -- 存储
@@ -81,3 +82,4 @@ mongodb 持久化存储
 └── redis           -- token等用户信息缓存
     ├── log
     └── redis-bin
+```
