@@ -1,9 +1,11 @@
 import { useRouter } from 'vue-router';
 import { computed, reactive } from 'vue';
 import useUserStore from '@/common/store/user';
+import useMessageStore from '@/common/store/message';
 
 //获取当前用户状态
 const userStore = useUserStore();
+const messageStore = useMessageStore()
 
 export default function useLogin() {
     const router = useRouter();
@@ -33,6 +35,8 @@ export default function useLogin() {
                     return resolve('/portal')
                 }
             );
+            console.log("login success, user:" + user)
+            messageStore.success("欢迎你：" + user)
             router.push(route);
         } catch (err) {
             console.log(err, 'login err');

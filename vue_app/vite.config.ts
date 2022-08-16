@@ -15,7 +15,7 @@ export default defineConfig({
       output: {
         manualChunks: {
           // echarts: ['echarts']
-          
+
         }
       }
     }
@@ -27,7 +27,17 @@ export default defineConfig({
       '/api/motto': {
         target: 'http://47.106.162.19/',
         changeOrigin: true,
-      }
+      },
+      '/api/login_info': {
+        target: 'http://47.106.162.19/',
+        // target: 'http://127.0.0.1:12345/',
+        changeOrigin: true,
+      },
+      '/login': {
+        // target: 'http://47.106.162.19/',
+        target: 'http://127.0.0.1:12345/',
+        changeOrigin: true,
+      },
     }
   },
 

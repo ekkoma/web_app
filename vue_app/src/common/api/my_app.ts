@@ -19,5 +19,13 @@ export default {
             loading: true,
             // data,
         });
-    }
+    },
+    loginfo() {
+        return request({
+            url: "/api/login_info",
+            method: "post",
+            loading: true,
+            // data,
+        });
+    },
 };
