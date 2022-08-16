@@ -137,9 +137,12 @@ ngx.log(ngx.ERR, "headers:" .. tostring(headers))
 --     return
 -- end
 
+-- 设置cookies
+ngx.header["Set-Cookie"] = {
+    "token=" .. token .. ";" .. "path=/;Expires=" .. ngx.cookie_time(ngx.time() + 60*30),
+    "user=" .. user .. ";" .. "path=/;Expires=" .. ngx.cookie_time(ngx.time() + 60*30),
+}
 
-ngx.header["Set-Cookie"] = "token=" .. token
-ngx.header["Set-Cookie"] = "user=" .. user
 ngx.log(ngx.ERR, "user:" .. user .. ", token:" .. token)
 rsp["code"] = 0
 rsp["msg"] = "登陆成功"

@@ -22,6 +22,19 @@ mongodb 持久化存储
     'type': 数据类型(1-类型1，2-类型2),
     '': ,
 }
+
+登录日志表：login_info {
+    '_id': mongo唯一id,
+    'insert_time_str': ,
+    'user': ,
+    'request_time': ,
+    'headers': ,
+    'remote_addr': ,
+    'remote_port': ,
+    'uri': ,
+    'insert_time': ,
+}
+
 ```
 架构
 #### 1.portal server 门户
@@ -45,3 +58,26 @@ mongodb 持久化存储
 1.producer 生产者进程：从网站爬取数据/生成随机数据，打到kafka集群 topic-data
 2.consumer 消费者进程：从kafka集群 topic-data消费数据，打入mongodb集群
 ```
+
+#### 5.项目目录
+├── go_web          -- 上游服务，业务接口
+│   └── api
+├── mongo           -- 存储
+│   ├── db
+│   ├── log
+│   └── mongodb
+│       └── bin
+├── portal
+│   ├── conf        -- nginx配置
+│   │   └── extra
+│   │       └── location
+│   ├── dist
+│   │   ├── assets
+│   │   └── idux-icons
+│   ├── logs
+│   |── lua             -- lua写登录与鉴权，waf阻拦
+│       └── api
+│   
+└── redis           -- token等用户信息缓存
+    ├── log
+    └── redis-bin

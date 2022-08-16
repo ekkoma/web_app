@@ -73,11 +73,11 @@ console.log("enter login.vue, form data:" + JSON.stringify(loginFormData) + ", b
 }
 
 .login__button:active {
-    background-color: #d9bd20;
+    background-color: #699f2e;
 }
 
 .login__button:disabled {
-    background-color: #a69119;
+    background-color: #41403b;
 }
 
 .motto {
