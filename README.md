@@ -61,8 +61,14 @@ mongodb 持久化存储
 
 #### 5.项目目录
 ```
-├── go_web          -- 上游服务，业务接口
-│   └── api
+├── go_web
+│   ├── bin        -- 编译的二进制文件
+│   ├── log
+│   ├── pkg
+│   └── src        -- 源代码
+│       ├── api
+│       ├── controller
+│       └── model
 ├── mongo           -- 存储
 │   ├── db
 │   ├── log
@@ -82,4 +88,22 @@ mongodb 持久化存储
 └── redis           -- token等用户信息缓存
     ├── log
     └── redis-bin
+```
+
+#### 6.性能测试（hello word）
+```
+#go server:
+ab -n 1000 -c 1000 http://127.0.0.1:9090/api/go/hello  
+Time taken for tests: 0.283 seconds   
+Requests per second:3539.33 [#/sec] (mean)
+
+#nginx + lua:
+ab -n 1000 -c 1000 http://127.0.0.1/hello              
+Time taken for tests: 0.087 seconds   
+Requests per second:11504.43 [#/sec] (mean)
+
+#nginx 代理到 go server
+ab -n 1000 -c 1000 http://127.0.0.1/api/go/hello       
+Time taken for tests: 1.790 seconds   
+Requests per second:1789.864 [ms] (mean)
 ```
