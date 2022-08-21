@@ -19,20 +19,23 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { IxInput } from "@idux/components/input";
+import { IxIcon } from "@idux/components/icon";
+
+import { ref } from 'vue';
 import useLogin from '@/views/login/hook/user_login';
 import API from '@/common/api/my_app';
 
 let { onLogin, loginFormData, btnDisabled } = useLogin();
 
-const showPassword = ref(false)
+const showPassword = ref(false);
 const onSuffixClick = () => {
     showPassword.value = !showPassword.value
 }
 
 // 响应回车键
 const onKeyEnter = () => {
-    console.log("key enter, button disable:" + btnDisabled.effect + "," + btnDisabled.value)
+    // console.log("key enter, button disable:" + btnDisabled.effect + "," + btnDisabled.value)
     if (!btnDisabled.value) {
         console.log("call login by enter")
         onLogin()
@@ -45,12 +48,12 @@ API.motto().then((result: any) => {
     if (motto) {
         motto.innerHTML = result.data
     }
-    console.log("get motto success:" + JSON.stringify(result))
+    // console.log("get motto success:" + JSON.stringify(result))
 }).catch((err: any) => {
     console.log("get motto failed:" + JSON.stringify(err))
 });
 
-console.log("enter login.vue, form data:" + JSON.stringify(loginFormData) + ", button disabled:" + Object.keys(btnDisabled))
+// console.log("enter login.vue, form data:" + JSON.stringify(loginFormData) + ", button disabled:" + Object.keys(btnDisabled))
 </script>
 
 <style>
@@ -83,11 +86,11 @@ console.log("enter login.vue, form data:" + JSON.stringify(loginFormData) + ", b
 }
 
 .login__button:active {
-    background-color: #699f2e;
+    background-color: #d9bd20;
 }
 
 .login__button:disabled {
-    background-color: #41403b;
+    background-color: #a69119;
 }
 
 .motto {

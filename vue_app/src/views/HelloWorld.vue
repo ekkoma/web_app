@@ -41,7 +41,7 @@ defineProps({
 
 const count = ref(0)
 
-console.log("enter HelloWorld.vue, count:" + JSON.stringify(count))
+// console.log("enter HelloWorld.vue, count:" + JSON.stringify(count))
 </script>
 
 

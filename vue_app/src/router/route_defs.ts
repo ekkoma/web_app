@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 import { storage } from '@/common/utils/utils';
 
 const routes = [
@@ -59,7 +59,7 @@ const router = createRouter({
     routes,
 });
 
-console.log("enter route defs, route count:" + routes.length)
+// console.log("enter route defs, route count:" + routes.length)
 
 router.beforeEach(async (to: any, from: any) => {
     let userName = storage.getItem('userName')

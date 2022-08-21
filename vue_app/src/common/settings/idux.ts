@@ -1,8 +1,8 @@
 import type { App } from 'vue';
 
-import IduxCdk from '@idux/cdk';
-import IduxComponents from '@idux/components';
-import IduxPro from '@idux/pro';
+// import IduxCdk from '@idux/cdk';
+// import IduxComponents from '@idux/components';
+// import IduxPro from '@idux/pro';
 
 // https://idux.site/docs/getting-started/zh
 
@@ -12,7 +12,7 @@ import IduxPro from '@idux/pro';
 
 // 如果需要 css 按需加载，移除下面 2 行代码
 import '@idux/components/default.min.css';
-import '@idux/pro/default.min.css';
+// import '@idux/pro/default.min.css';
 
 // 默认为中文，可以打开注释设置为其他语言
 // import { useLocale, enUS } from "@idux/components/i18n";
@@ -40,7 +40,10 @@ const globalConfig = createGlobalConfig({
 });
 
 const install = (app: App): void => {
-  app.use(IduxCdk).use(IduxComponents).use(IduxPro).use(globalConfig);
+  // 这里一次性use全部插件会导致构建后的index.js的体积过大
+  // app.use(IduxCdk).use(IduxComponents).use(IduxPro).use(globalConfig);
+  // app.use(IduxComponents).use(globalConfig);
+  app.use(globalConfig);
 };
 
 export default { install };

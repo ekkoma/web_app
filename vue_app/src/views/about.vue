@@ -3,7 +3,8 @@
 </template>
 
 <script setup lang="ts">
-    console.log("enter about.vue")
+
+console.log("enter about.vue");
 
 </script>
 

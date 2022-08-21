@@ -8,7 +8,8 @@
 
 <script setup lang="ts">
 
-console.log("enter menu.vue")
+console.log("enter menu.vue");
+
 </script>
 
 <style>

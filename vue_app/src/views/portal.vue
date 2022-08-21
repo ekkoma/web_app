@@ -7,7 +7,7 @@
     </div>
 
     <div class="c_loginfo">
-        <button id="button001" @click="enterLoginfo">查看日志</button>
+        <button @click="enterLoginfo">查看日志</button>
     </div>
 
 </template>
@@ -15,12 +15,12 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 
-console.log("enter portal.vue")
+console.log("enter portal.vue");
 
 const router = useRouter();
 let enterLoginfo = () => {
     router.push('/loginfo')
-}
+};
 
 </script>
 

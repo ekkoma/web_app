@@ -7,8 +7,10 @@
 </template>
 
 <script setup lang="ts">
-import getLoginInfo from '@/views/login_info/hook/get_log_info'
-import { TableColumn } from '@idux/components/table'
+import { IxTable } from "@idux/components/table";
+
+import getLoginInfo from '@/views/login_info/hook/get_log_info';
+import { TableColumn } from '@idux/components/table';
 
 interface LoginInfo {
     key: number
@@ -43,9 +45,10 @@ const columns: TableColumn<LoginInfo>[] = [
         dataKey: 'client_port',
         // customCell: 'client_port',
     },
-]
+];
 
-let dataContent: LoginInfo[] = getLoginInfo()
+let dataContent: LoginInfo[] = getLoginInfo();
+
 </script>
 
 

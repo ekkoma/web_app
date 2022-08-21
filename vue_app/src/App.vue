@@ -9,6 +9,9 @@
 </template>
 
 <script setup lang="ts">
+import { IxSpin } from "@idux/components/spin";
+import { IxMessageProvider } from "@idux/components/message";
+
 import useMessageStore from '@/common/store/message';
 import useLoadingStore from '@/common/store/loading';
 import { storeToRefs } from 'pinia';
@@ -22,7 +25,7 @@ let { message } = storeToRefs(messageStore);
 //记录loading状态
 let { isLoading } = storeToRefs(loadingStore);
 
-console.log("enter App.vue, message:" + JSON.stringify(message) + ", isloading:" + JSON.stringify(isLoading))
+// console.log("enter App.vue, message:" + JSON.stringify(message) + ", isloading:" + JSON.stringify(isLoading))
 </script>
 
 <style scoped>

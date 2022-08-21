@@ -6,7 +6,7 @@ const resultList: any = ref([]);
 export default function getLoginInfo() {
     API.loginfo().then((result: any) => {
         // console.log("get login info success:" + JSON.stringify(result))
-        let tmpList = []
+        let tmpList = [];
         for (let [index, item] of result.data.entries()) {
             tmpList.push({
                 'key': index + 1, // 必须指定该字段，不然控制台报错
@@ -18,10 +18,10 @@ export default function getLoginInfo() {
             })
         }
 
-        resultList.value = tmpList
+        resultList.value = tmpList;
     }).catch((err: any) => {
-        console.log("get login info failed:" + JSON.stringify(err))
+        console.log("get login info failed:" + JSON.stringify(err));
     });
 
-    return resultList
+    return resultList;
 }

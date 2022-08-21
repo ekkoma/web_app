@@ -1,12 +1,12 @@
 import Request from '@/common/request/src/request';
 import useLoadingStore from '@/common/store/loading';
 import useMessageStore from '@/common/store/message';
-import { sleep } from '@/common/utils/utils'
+import { sleep } from '@/common/utils/utils';
 
-const messageStore = useMessageStore()
+const messageStore = useMessageStore();
 
 let loadingCount = 0 //记录loading弹出次数
-const loadingStore = useLoadingStore()
+const loadingStore = useLoadingStore();
 
 const { axiosObj } = new Request({
 
@@ -61,7 +61,7 @@ const { axiosObj } = new Request({
                 if (data.polling === true) {//自定义属性，当返回数据有这属性时，重新调用接口
                     return sleep(data.pollingTime || 1000).then(() => axiosObj(res.config))
                 }
-                messageStore.error(data.msg)
+                messageStore.error(data.msg);
                 return Promise.reject(data);
             },
             async reject(error: any) {
@@ -72,7 +72,7 @@ const { axiosObj } = new Request({
                     await sleep(500);
                     return axiosObj(error.config);
                 }
-                messageStore.error(err.msg)
+                messageStore.error(err.msg);
                 return Promise.reject(err);
             },
         });

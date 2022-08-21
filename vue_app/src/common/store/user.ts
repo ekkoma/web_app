@@ -24,7 +24,7 @@ const useUserStore = defineStore('user', {
             });
         },
         userName() {
-            return this.user
+            return this.user;
         }
     },
     getters: {

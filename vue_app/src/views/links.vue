@@ -14,7 +14,8 @@
 
 <script setup lang="ts">
 
-console.log("enter links.vue")
+console.log("enter links.vue");
+
 </script>
 
 <style>
