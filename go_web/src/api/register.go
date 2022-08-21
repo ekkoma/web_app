@@ -21,7 +21,9 @@ var url_switch =  UrlSwitch{
 // 注册路由与处理函数
 func UriRegister(mux *http.ServeMux) int {
 	for uri := range url_switch {
-		mux.Handle(uri, url_switch[uri])
+		// 函数原型：func (mux *ServeMux) Handle(pattern string, handler Handler)
+		// Handle是ServeMux 类的方法
+		mux.Handle(uri, url_switch[uri]) 
 	}
 	return 0
 }

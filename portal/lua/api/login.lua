@@ -2,15 +2,10 @@ local json = require "cjson"
 local redis = require "resty.redis"
 local mongo = require "resty.mongol"
 
-ngx.log(ngx.ERR, "content_by_lua_block")
+--ngx.log(ngx.ERR, "content_by_lua_block")
 
 ngx.req.read_body()
 local data = ngx.req.get_body_data() -- string
-
-if not data then
-    ngx.say("failed to get post data")
-    return
-end
 
 local rsp = 
 {
@@ -18,6 +13,13 @@ local rsp =
     ["data"]= {}, 
     ["msg"]= ""
 }
+
+if not data then
+    rsp["code"] = 1
+    rsp["msg"] = "failed to get post data"
+    ngx.say(json.encode(rsp))
+    return
+end
 
 args = json.decode(data)
 local user = args["user"]
@@ -119,16 +121,16 @@ local doc =
 }
 local r, err = table_coll:insert({doc}) -- 插入格式 {{}}
 
-ngx.log(ngx.ERR, "r:" .. tostring(r))
-ngx.log(ngx.ERR, "err:" .. tostring(err))
+-- ngx.log(ngx.ERR, "r:" .. tostring(r))
+-- ngx.log(ngx.ERR, "err:" .. tostring(err))
 
-ngx.log(ngx.ERR, "remote_addr:" .. remote_addr)
-ngx.log(ngx.ERR, "remote_port:" .. remote_port)
-ngx.log(ngx.ERR, "uri:" .. uri)
-ngx.log(ngx.ERR, "insert_time:" .. insert_time)
-ngx.log(ngx.ERR, "insert_time_str:" .. insert_time_str)
-ngx.log(ngx.ERR, "request_time:" .. request_time)
-ngx.log(ngx.ERR, "headers:" .. tostring(headers))
+-- ngx.log(ngx.ERR, "remote_addr:" .. remote_addr)
+-- ngx.log(ngx.ERR, "remote_port:" .. remote_port)
+-- ngx.log(ngx.ERR, "uri:" .. uri)
+-- ngx.log(ngx.ERR, "insert_time:" .. insert_time)
+-- ngx.log(ngx.ERR, "insert_time_str:" .. insert_time_str)
+-- ngx.log(ngx.ERR, "request_time:" .. request_time)
+-- ngx.log(ngx.ERR, "headers:" .. tostring(headers))
 
 -- if not r then
 --     rsp["code"] = 1
