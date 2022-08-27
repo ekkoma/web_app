@@ -51,6 +51,11 @@ const routes = [
         name: 'loginfo-page',
         component: () => import('@/views/login_info/loginfo.vue')
     },
+    {
+        path: '/assist',
+        name: 'assist-page',
+        component: () => import('@/views/assist.vue')
+    },
 ]
 
 const router = createRouter({
